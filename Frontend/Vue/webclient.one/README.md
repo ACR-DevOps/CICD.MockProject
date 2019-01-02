@@ -1,4 +1,4 @@
-# vue.webclient.one
+# webclient.one
 
 ## Project setup
 ```
