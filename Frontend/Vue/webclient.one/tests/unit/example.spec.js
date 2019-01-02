@@ -10,4 +10,7 @@ describe("HelloWorld.vue", () => {
     });
     expect(wrapper.text()).to.include(msg);
   });
+  it("failing test", () => {
+    expect(true).to.equal(false);
+  })
 });
