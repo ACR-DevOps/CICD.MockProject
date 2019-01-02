@@ -1,0 +1,15 @@
+<SqlScripts>
+    <Pre-Run></Pre-Run>
+
+    <Main-Run>
+        <Stage s-order="2" name="stage_x">
+            <RelativePath f-order="2">InsertToMockedProjectList1.sql</RelativePath>
+            <RelativePath f-order="1">InsertToMockedProjectList3.sql</RelativePath>
+        </Stage>
+        <Stage s-order="1" name="stage_y">
+            <RelativePath f-order="1">InsertToMockedProjectList2.sql</RelativePath>
+        </Stage>
+    </Main-Run>
+
+    <Post-Run></Post-Run>
+</SqlScripts>

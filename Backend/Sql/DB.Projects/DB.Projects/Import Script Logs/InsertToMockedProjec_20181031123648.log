@@ -1,0 +1,10 @@
+10/30/2018 8:36:48 PM	This log contains information about the import operation of the script 'InsertToMockedProjectList2.sql' into project 'DB.Projects' on computer 'RST-LTKWANG1' by user'kwang.
+10/30/2018 8:36:48 PM	Started importing file: C:\MyWork\devops-working\trunk\MockProject\DB.Scripts\InsertToMockedProjectList2.sql 
+10/30/2018 8:36:48 PM	File name C:\MyWork\devops-working\trunk\MockProject\DB.Scripts\InsertToMockedProjectList2.sql (size: 389)
+10/30/2018 8:36:48 PM	Parsing import script
+10/30/2018 8:36:49 PM	Total number of batches in script: 2
+10/30/2018 8:36:49 PM	Total number of statements in script: 0
+10/30/2018 8:36:49 PM	The script was successfully imported into the project.
+10/30/2018 8:36:49 PM	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+10/30/2018 8:36:49 PM	A summary of the import was saved to the following location: C:\MyWork\devops-working\trunk\MockProject\DB.Projects\DB.Projects\Import Script Logs\InsertToMockedProjec_20181031123648.log
+10/30/2018 8:36:49 PM	Click Finish to continue...

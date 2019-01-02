@@ -1,0 +1,151 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <style>
+        div.container {
+            width: 450px;
+            margin: 200px auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        p.title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        button.btn {
+            outline: none;
+            border: none;
+            width: 200px;
+            height: 40px;
+            background-color: #5499C7;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+            button.btn:hover {
+                background-color: #2471A3;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+
+        p#result {
+            margin-top: 40px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        div.modal-mask {
+            position: fixed;
+            display: table;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .6);
+            top: 0;
+            left: 0;
+            z-index: 200;
+            display: none;
+        }
+
+        div.modal-wrapper {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        div.modal-container {
+            position: absolute;
+            width: 150px;
+            height: 30px;
+            top: calc(50% - 15px);
+            left: calc(50% - 75px);
+            padding: 10px 0px;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            font-family: Helvetica, Arial, sans-serif;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#greeting').html('@ViewBag.GreetingMessage');
+
+            $('#result').html("Info here ...");
+
+            $('#btnGetServerName').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '@ViewBag.WebServiceUrlToGetServerName',
+                    contentType: "application/json; charset=utf-8",
+                    beforeSend: function () {
+                        $('#waiting_animation').show();
+                    },
+                    complete: function () {
+                        $('#waiting_animation').hide();
+                    },
+                    success: function (result) {
+                        $('#result').html("Server Name: " + result);
+                    },
+                    error: function (err) {
+                        alert("Error Message: " + err.responseText);
+                    }
+                });
+            })
+
+            $('#btnGetServerTime').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '@ViewBag.WebServiceUrlToGetServerTime',
+                    contentType: "application/json; charset=utf-8",
+                    beforeSend: function () {
+                        $('#waiting_animation').show();
+                    },
+                    complete: function () {
+                        $('#waiting_animation').hide();
+                    },
+                    success: function (result) {
+                        $('#result').html("Server Time: " + result);
+                    },
+                    error: function (err) {
+                        alert("Error Message: " + err.responseText);
+                    }
+                });
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p id="greeting"></p>
+
+        <p class="title">CICD Mock Web Application</p><br />
+        <button id="btnGetServerName" class="btn">Show Server Name</button>
+        &nbsp;&nbsp;
+        <button id="btnGetServerTime" class="btn">Show Server Time</button>
+
+        <p id="result"></p>
+    </div>
+
+    <div id="waiting_animation" class="modal-mask">
+        <div class="modal-wrapper">
+            <div class="modal-container">
+                <div class="loader-text">Loading ...</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
